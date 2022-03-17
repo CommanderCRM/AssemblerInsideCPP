@@ -1,5 +1,5 @@
-FROM hugome/gcc-multilib
-WORKDIR /usr/src
-COPY 10KIA748.s /usr/src
-RUN gcc -m32 10KIA748.s -o 10KIA748 -g
+FROM amazonlinux
+RUN yum install -y gcc-c++ gdb
+COPY ./10KIA748.cpp .
+RUN g++ 10KIA748.cpp -o 10KIA748
 CMD ["./10KIA748"]
